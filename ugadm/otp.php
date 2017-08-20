@@ -1,13 +1,6 @@
-
 <?php
-  require('includes/generate.php');
+require('includes/otp.core.php');
 ?>
-
-
-
-
-
-
 <!doctype html>
 
 
@@ -52,25 +45,29 @@ if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side frame
         <span class="label label-info"><i class="fa fa-info-circle"></i>Faculty Feedback Portal for LNMIIT</span>
         </h3>
              <h4 class="text-center" style="color:red; font-style:italic;">
-           <marquee><b><span id="lblMsg">Sign In to give feedback</span></b></marquee>
+           <marquee><b><span id="lblMsg">OTP has been send to your ID</span></b></marquee>
         </h4>
            <div class="col-md-6 col-xs-12">
           
            <div class="pull-left">
-            <h1 class="text-teal">Sign In</h1>
+            <h1 class="text-teal">Enter your OTP</h1>
            </div>
           
             <div class="form-signin">
                 <span id="reauth-email" class="reauth-email"></span>
 
-                <form action="" method="POST">
+               
+                <form action="otp.php" method="POST">
 
-                  <input name="txtAppid" type="text" maxlength="30" id="txtAppid" tabindex="1" class="form-control" placeholder="LNMIIT Official Mail id" />
-                  
-                  <p>               
+                <input name="otp" type="text" maxlength="6" id="txtAppid" tabindex="1" class="form-control" placeholder="Enter your OTP" />
                 
-                    <input type="submit" name="btnSubmit" value="Enter to generate OTP" onclick=" location.href = 'otp-request.html';" id="btnSubmit" class="btn btn-info margin-r-5" />
+                
+                
+                <input type="submit" name="btnSubmit" value="Sign In" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;btnSubmit&quot;, &quot;&quot;, true, &quot;login&quot;, &quot;&quot;, false, false))" id="btnSubmit" class="btn btn-info margin-r-5" />
                 </form>
+
+                <span></span>
+                <span class="pull-right"><a data-toggle="modal" href="#myModal">Didn't recieve the OTP? Click here to resend.</a></span>
                 
                 <p>
             </div>
